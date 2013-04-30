@@ -7,6 +7,8 @@
  * --------------------------------------------------------------------
  */
 $.fn.customFileInput = function(){
+	// store the class attribute from the original input element
+	var originalInputClass = $(this).attr('class');
 	//apply events and styles for file input element
 	var fileInput = $(this)
 		.addClass('customfile-input') //add class for CSS
@@ -55,8 +57,8 @@ $.fn.customFileInput = function(){
 			},100);
 		});
 		
-	//create custom control container
-	var upload = $('<div class="customfile"></div>');
+	//create custom control container, add original css class to the container
+	var upload = $('<div class="customfile '+originalInputClass+'"></div>');
 	//create custom control button
 	var uploadButton = $('<span class="customfile-button" aria-hidden="true">Browse</span>').appendTo(upload);
 	//create custom control feedback
